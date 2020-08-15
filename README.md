@@ -34,3 +34,4 @@ We will be implementing a MERN stack: MongoDB, Express.js, React.js, Node.js.
 
 ## Links:
 * [Linking React App to Express Server](https://dev.to/nburgess/creating-a-react-app-with-react-router-and-an-express-backend-33l3)
+* [Plaid Quickstart](https://plaid.com/docs/quickstart/#introduction)
