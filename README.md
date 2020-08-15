@@ -17,3 +17,20 @@ There is so much overhead with dealing with personal finances:
 
 ## Who is this app being designed for?
 This app is intended for the average person with several personal savings, checking, and investment accounts as well as liabilities like credit lines and loans.  **It is meant to enable common people to more easily understand themselves financially**.
+
+## Idea Board:
+
+#### Application Components:
+We will be implementing a MERN stack: MongoDB, Express.js, React.js, Node.js.
+
+* MongoDB
+  * Eventually, we will create a server or something to host a database, but for now we will just use csv files...
+* Express.js
+  * This will be used to handle all of our server requests and routing...
+* React.js
+  * This will be our front end.
+* Node.js
+  * This will be our back end.
+
+## Links:
+* [Linking React App to Express Server](https://dev.to/nburgess/creating-a-react-app-with-react-router-and-an-express-backend-33l3)
