@@ -15,6 +15,7 @@
     "react-scripts": "3.4.3",
     "typescript": "^3.7.5"
   },
+  "proxy": 8000,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -35,5 +36,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "dotenv": "^8.2.0"
   }
 }

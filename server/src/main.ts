@@ -1,12 +1,22 @@
-import express = require('express');
+require('dotenv').config();
 
+import express = require('express');
 const server = express();
-const port = 3000;
 
 server.get('/helloWorld', (request, response) => {
   response.send('hello world!');
 });
 
+const publicPath = process.env.PUBLIC_PATH;
+if (publicPath === undefined) {
+  throw new TypeError('Error: process.env.PUBLIC_PATH is undefined.');
+}
+server.use(express.static(publicPath));
+server.get('/*', (request, response) => {
+  response.sendFile(publicPath + '/index.html');
+});
+
+const port = process.env.HOST_PORT;
 server.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });

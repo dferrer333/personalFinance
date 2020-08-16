@@ -7,13 +7,15 @@
     "test": "test"
   },
   "scripts": {
-    "start": "npx tsc && node src/main.js",
+    "start": "npx tsc && cp -R ../client/build/* ./public && node src/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dorian Ferrer",
   "license": "ISC",
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.7",
+    "dotenv": "^8.2.0",
     "typescript": "^3.9.7"
   },
   "dependencies": {
