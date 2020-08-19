@@ -1,11 +1,9 @@
 require('dotenv').config();
 
-import express = require('express');
+import express from 'express';
 const server = express();
 
-server.get('/helloWorld', (request, response) => {
-  response.send('hello world!');
-});
+server.use('/api/transactions', require('./routes/transactions.js'));
 
 const publicPath = process.env.PUBLIC_PATH;
 if (publicPath === undefined) {
