@@ -1,6 +1,6 @@
 export default class Validator {
   static isWholeNumber(value: string): boolean {
-    return value.search(/^[0-9]+$/) >= 0;
+    return value.search(/^0$|^[1-9][0-9]*$/) >= 0;
   }
 
   static isValidMonthNumber(value: string): boolean {

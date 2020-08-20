@@ -4,7 +4,7 @@ var Validator = /** @class */ (function () {
     function Validator() {
     }
     Validator.isWholeNumber = function (value) {
-        return value.search(/^[0-9]+$/) >= 0;
+        return value.search(/^0$|^[1-9][0-9]*$/) >= 0;
     };
     Validator.isValidMonthNumber = function (value) {
         return value.search(/^[1-9]$|^1[0-2]$/) >= 0;
