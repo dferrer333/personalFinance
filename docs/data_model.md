@@ -1,3 +1,10 @@
+# Current Data Model
+
+Currently, the transaction data is being stored using CSV files.  Below are the requirements for the files:
+
+* The file name must follow the following convention: `1-2020.csv`, the first number being the month and the second being the year.
+* The file contents must have a single row for the header, and consistent rows thereafter for the values.
+
 # Data Model Ideas
 
 ## Idea 1:
