@@ -8,7 +8,7 @@ require('dotenv').config();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App serverHostUrl={`${process.env.REACT_APP_HOST}`} />
   </React.StrictMode>,
   document.getElementById('root')
 );
