@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "npx tsc && cp -R ../client/build/* ./public && node src/main.js",
+    "start": "npx tsc && mkdir -p ./public && cp -R ../client/build/* ./public && node src/main.js",
     "test": "npx tsc && npx jest"
   },
   "author": "Dorian Ferrer",
