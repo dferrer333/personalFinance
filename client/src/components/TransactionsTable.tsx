@@ -1,5 +1,5 @@
 import {CreditTransaction, TransactionsDate, TransactionsTableProps,
-  TransactionsTableState} from './TransactionsI';
+  TransactionsTableState} from './TransactionsTableI';
 import DateUtilities, {MonthError, YearError} from '../utils/DateUtilities';
 import React from 'react';
 import Table from '@material-ui/core/Table';
