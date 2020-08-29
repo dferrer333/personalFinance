@@ -17,7 +17,7 @@ export default class Server {
     this.server = express();
   }
 
-  start(certificatePath: string, keyPath: string): void {
+  async start(certificatePath: string, keyPath: string) {
     this.server.use('/api/transactions', require('./routes/transactions'));
     this.server.use(require('./routes/static'));
 
@@ -29,8 +29,5 @@ export default class Server {
     https.createServer(httpsOptions, this.server).listen(this.port, () => {
       console.log(`Server listening on port ${this.port}`);
     });
-    // this.server.listen(this.port, () => {
-    //   console.log(`Server listening on port ${this.port}`);
-    // });
   }
 }

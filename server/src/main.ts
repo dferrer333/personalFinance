@@ -5,14 +5,14 @@ import Server from './Server';
 require('dotenv').config();
 
 
-function initializeServer(): void {
+async function initializeServer() {
   const port: number = getHostPort();
   const logger = new Logger();
   const model = new CSVModel();
   const server = new Server(logger, model, port);
 
   const [certificatePath, keyPath] = getHTTPSPaths();
-  server.start(certificatePath, keyPath);
+  await server.start(certificatePath, keyPath);
 }
 
 function getHostPort(): number {
