@@ -12,7 +12,7 @@ from cryptography.x509.oid import NameOID
 from cryptography.hazmat.primitives import hashes
 
 keyLocation = input('Enter Location to Store Key: ')
-passPhrase = getpass('Enter encryption passphrase: ')
+# passPhrase = getpass('Enter encryption passphrase: ')
 
 key = rsa.generate_private_key(
     public_exponent=65537, key_size=2048, backend=default_backend())
@@ -21,8 +21,9 @@ with open(keyLocation + "/key.pem", "wb") as f:
   f.write(key.private_bytes(
       encoding=serialization.Encoding.PEM,
       format=serialization.PrivateFormat.TraditionalOpenSSL,
-      encryption_algorithm=serialization.BestAvailableEncryption(bytes(passPhrase, 'utf-8')),
-  ))
+      encryption_algorithm=serialization.NoEncryption()),
+  )
+# excluding option encryption_algorithm=serialization.BestAvailableEncryption(bytes(passPhrase, 'utf-8'))
 
 certLocation = input('Enter Location to Store Self-Signed Certificate: ')
 
