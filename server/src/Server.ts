@@ -1,4 +1,6 @@
 import express from 'express';
+import fs from 'fs';
+import https from 'https';
 import LoggerI from './utils/LoggerI';
 import ModelI from './model/ModelI';
 
@@ -15,12 +17,20 @@ export default class Server {
     this.server = express();
   }
 
-  start(): void {
+  start(certificatePath: string, keyPath: string): void {
     this.server.use('/api/transactions', require('./routes/transactions'));
     this.server.use(require('./routes/static'));
 
-    this.server.listen(this.port, () => {
+    const httpsOptions = {
+      cert: fs.readFileSync(certificatePath),
+      key: fs.readFileSync(keyPath),
+    }
+
+    https.createServer(httpsOptions, this.server).listen(this.port, () => {
       console.log(`Server listening on port ${this.port}`);
     });
+    // this.server.listen(this.port, () => {
+    //   console.log(`Server listening on port ${this.port}`);
+    // });
   }
 }

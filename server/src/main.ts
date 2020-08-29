@@ -11,15 +11,14 @@ function initializeServer(): void {
   const model = new CSVModel();
   const server = new Server(logger, model, port);
 
-  server.start();
+  const [certificatePath, keyPath] = getHTTPSPaths();
+  server.start(certificatePath, keyPath);
 }
 
 function getHostPort(): number {
   if (process.env.HOST_PORT === undefined) {
-    const portNotSetError = new Error('you must set the host port in the' +
+    throw getEnvNotSetError('you must set the host port in the' +
         ' root ".env" file.');
-    portNotSetError.name = 'PortNotSetError';
-    throw portNotSetError;
   }
 
   const hostPort = parseInt(process.env.HOST_PORT);
@@ -30,6 +29,21 @@ function getHostPort(): number {
   }
 
   return hostPort;
+}
+
+function getHTTPSPaths() {
+  if (process.env.HTTPS_PATH === undefined) {
+    throw getEnvNotSetError('you must set the path to the "https" folder');
+  }
+
+  const httpsPath = process.env.HTTPS_PATH;
+  return [`${httpsPath}/certificate.pem`, `${httpsPath}/key.pem`];
+}
+
+function getEnvNotSetError(message: string) {
+  const envNotSetError = new Error(message);
+  envNotSetError.name = 'EnvNotSetError';
+  return envNotSetError;
 }
 
 initializeServer();
