@@ -1,3 +1,5 @@
+import {CreditTransaction, TransactionsDate, TransactionsTableProps,
+  TransactionsTableState} from './TransactionsI';
 import DateUtilities, {MonthError, YearError} from '../utils/DateUtilities';
 import React from 'react';
 import Table from '@material-ui/core/Table';
@@ -6,31 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import TransactionsRequesterI from '../api/TransactionsRequesterI';
 import Paper from '@material-ui/core/Paper';
-
-type AccountType = 'credit' | 'checking' | 'savings';
-interface TransactionsDate {
-  month: number,
-  year: number,
-}
-interface TransactionsTableProps {
-  accountType: AccountType,
-  transactionsDate: TransactionsDate,
-  transactionsRequester: TransactionsRequesterI,
-};
-interface CreditTransaction {
-  Date: string,
-  Type: string,
-  Category: string,
-  From: string,
-  To: string,
-  Description: string,
-  Amount: string,
-}
-interface TransactionsTableState {
-  creditTransactions: CreditTransaction[],
-}
 
 export default class TransactionsTable extends
     React.Component<TransactionsTableProps, TransactionsTableState> {
