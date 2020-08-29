@@ -2,6 +2,7 @@
 
 # Credit to https://cryptography.io/en/latest/x509/tutorial/#creating-a-self-signed-certificate
 
+from cryptography.hazmat.primitives.ciphers.algorithms import AES
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
@@ -12,18 +13,16 @@ from cryptography.x509.oid import NameOID
 from cryptography.hazmat.primitives import hashes
 
 keyLocation = input('Enter Location to Store Key: ')
-# passPhrase = getpass('Enter encryption passphrase: ')
 
 key = rsa.generate_private_key(
     public_exponent=65537, key_size=2048, backend=default_backend())
 
 with open(keyLocation + "/key.pem", "wb") as f:
-  f.write(key.private_bytes(
-      encoding=serialization.Encoding.PEM,
-      format=serialization.PrivateFormat.TraditionalOpenSSL,
-      encryption_algorithm=serialization.NoEncryption()),
-  )
-# excluding option encryption_algorithm=serialization.BestAvailableEncryption(bytes(passPhrase, 'utf-8'))
+    f.write(key.private_bytes(
+        encoding=serialization.Encoding.PEM,
+        format=serialization.PrivateFormat.TraditionalOpenSSL,
+        encryption_algorithm=serialization.NoEncryption()),
+    )
 
 certLocation = input('Enter Location to Store Self-Signed Certificate: ')
 
