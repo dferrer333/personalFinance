@@ -1,6 +1,8 @@
+import {AccountTab} from './ViewPanelI';
+import AccountTabContent from './AccountTabContent';
 import React from 'react';
 import {Tabs} from 'antd';
-import {ViewPanelProps} from './ViewPanelI';
+import {ViewPanelProps, ViewPanelState} from './ViewPanelI';
 
 const {TabPane} = Tabs;
 
@@ -10,9 +12,23 @@ const mainDivStyle = {
   backgroundColor: '#0f4c75',
 }
 
-export default class ViewPanel extends React.Component<ViewPanelProps, {}> {
+export default class ViewPanel extends
+    React.Component<ViewPanelProps, ViewPanelState> {
   constructor(props: ViewPanelProps) {
     super(props);
+
+    this.state = {
+      accountTabs: [
+        {
+          accountTabTitle: 'Welcome!',
+          accountTabElement: this.getDefaultAccountTabElement(),
+        }
+      ],
+    }
+  }
+
+  getDefaultAccountTabElement() {
+    return <AccountTabContent accountTabTitle='Welcome!' default={true} />;
   }
 
   callback(key: string) {
@@ -24,14 +40,22 @@ export default class ViewPanel extends React.Component<ViewPanelProps, {}> {
       <div style={mainDivStyle}>
         <Tabs onChange={this.callback} type='card'
               style={{backgroundColor: '#bbe1fa', height: '100%'}} tabPosition='top'>
-          <TabPane tab="Tab 1" key="1">
-            Content of Tab Pane 1
-          </TabPane>
-          <TabPane tab="Tab 2" key="2">
-            Content of Tab Pane 2
-          </TabPane>
+          {this.renderAccountTabs()}
         </Tabs>
       </div>
     );
+  }
+
+  renderAccountTabs() {
+    return this.state.accountTabs.map(
+        (accountTab: AccountTab, tabIndex: number) => {
+      return (
+        <TabPane tab={`${this.state.accountTabs[tabIndex].accountTabTitle}`}
+                 key={`${tabIndex}`}
+        >
+          {accountTab.accountTabElement}
+        </TabPane>
+      );
+    })
   }
 }

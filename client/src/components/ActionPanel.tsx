@@ -9,10 +9,6 @@ const mainDivStyle = {
 
 export default class ActionPanel
     extends React.Component<ActionPanelProps, {}> {
-  constructor(props: ActionPanelProps) {
-    super(props);
-  }
-
   render() {
     return (
         <div style={mainDivStyle}>

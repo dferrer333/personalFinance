@@ -1,6 +1,6 @@
 import {CreditTransaction, TransactionsDate, TransactionsTableProps,
   TransactionsTableState} from './TransactionsTableI';
-import DateUtilities, {MonthError, YearError} from '../utils/DateUtilities';
+import DateUtilities, {MonthError, YearError} from '../../utils/DateUtilities';
 import React from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';

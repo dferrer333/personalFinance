@@ -1,5 +1,5 @@
 import TransactionRequesterI from
-    '../api/TransactionsRequesterI';
+    '../../api/TransactionsRequesterI';
 
 export interface TransactionsDate {
   month: number,
