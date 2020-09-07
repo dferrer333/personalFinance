@@ -1,3 +1,5 @@
+import {AccountTabContentProps, AccountTabContentState, ChangeEvent}
+    from './AccountTabContentI';
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -7,25 +9,31 @@ import Select from '@material-ui/core/Select';
 
 import './AccountTabContent.css';
 
-interface AccountTabContentProps {
-  accountTabTitle: string,
-  default?: boolean,
-}
-
 export default class AccountTabContent extends
-    React.Component<AccountTabContentProps, {}> {
+    React.Component<AccountTabContentProps, AccountTabContentState> {
+  tabContentWrapper: React.RefObject<unknown>;
+
   constructor(props: AccountTabContentProps) {
     super(props);
 
+    this.tabContentWrapper = React.createRef();
     this.state = {
       defaultAccountSelectedValue: '',
     };
+
+    this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
-  handleSelectChange(newValue: React.ChangeEvent<{ name?: string | undefined;
-      value: unknown; }>) {
-    console.log(newValue.value);
-    // this.setState()
+  handleSelectChange(changeEvent: ChangeEvent) {
+    console.log(changeEvent.target.value);
+
+    if (typeof changeEvent.target.value !== 'number') {
+      throw new TypeError('event value must be a number, is of type ' +
+          `${typeof changeEvent.target.value}`);
+    }
+
+    this.setState(
+        {defaultAccountSelectedValue: `${changeEvent.target.value}`});
   }
 
   render() {
@@ -42,10 +50,13 @@ export default class AccountTabContent extends
   renderDefaultAccountTabContent() {
     return (
       <FormControl style={{minWidth: '200px'}}>
-        <InputLabel >
+        <InputLabel id='default-account-tab-selector-label'>
           Account Name
         </InputLabel>
-        <Select onChange={this.handleSelectChange}
+        <Select id='default-account-tab-selector'
+                labelId='default-account-tab-selector-label'
+                value={this.state.defaultAccountSelectedValue}
+                onChange={this.handleSelectChange}
         >
           {this.requestUserAccounts()}
         </Select>

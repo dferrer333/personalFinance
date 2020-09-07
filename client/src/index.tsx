@@ -9,9 +9,7 @@ import * as serviceWorker from './serviceWorker';
 require('dotenv').config();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App serverHostUrl={`${process.env.REACT_APP_HOST}`} />
-  </React.StrictMode>,
+  <App serverHostUrl={`${process.env.REACT_APP_HOST}`} />,
   document.getElementById('root')
 );
 
