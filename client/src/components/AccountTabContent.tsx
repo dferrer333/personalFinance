@@ -1,6 +1,8 @@
-import {AccountTabContentProps, AccountTabContentState, ChangeEvent}
+import {AccountTabContentProps, AccountTabContentState}
     from './AccountTabContentI';
 import Box from '@material-ui/core/Box';
+import {ChangeEvent} from '../utils/Events';
+import {EventValueError} from '../utils/Errors';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -28,8 +30,7 @@ export default class AccountTabContent extends
     console.log(changeEvent.target.value);
 
     if (typeof changeEvent.target.value !== 'number') {
-      throw new TypeError('event value must be a number, is of type ' +
-          `${typeof changeEvent.target.value}`);
+      throw new EventValueError('number', changeEvent.target.value);
     }
 
     this.setState(
