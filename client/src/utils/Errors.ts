@@ -7,3 +7,11 @@ export class EventValueError extends Error {
     this.name = 'EventValueError';
   }
 }
+
+export class ValueError extends Error {
+  constructor(expectedValues: any[], receivedValue: any) {
+    super(`invalid value of ${receivedValue}, expected one of the ` +
+        `following: ${expectedValues.toString()}`);
+    this.name = 'ValueError';
+  }
+}
