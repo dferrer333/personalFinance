@@ -6,6 +6,3 @@ export interface AccountTabContentProps {
 export interface AccountTabContentState {
   defaultAccountSelectedValue: string,
 }
-
-export type ChangeEvent = React.ChangeEvent<
-    { name?: string | undefined; value: unknown; }>
