@@ -8,10 +8,6 @@ interface LoginTabContentProps {
 
 export default class LoginTabContent
     extends React.Component<LoginTabContentProps, {}> {
-  constructor(props: LoginTabContentProps) {
-    super(props);
-  }
-
   render() {
     if (this.props.activeTab === 'login') {
       return this.renderLoginContent();
@@ -59,6 +55,8 @@ export default class LoginTabContent
 
         <label>Choose Your Favorite Animal</label>
         <input type='select'></input>
+
+        <button type='submit'>Register</button>
       </div>
     );
   }

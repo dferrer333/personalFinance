@@ -4,30 +4,40 @@
   text-align: center;
   background-color: #3282b8;
 
-  border: solid;
+  border-bottom: solid;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   
-  height: 35px;
+  height: 45px;
   width: 100%;
 }
 
 .login-tab {
   display: flex;
-}
-
-.login-tab:hover {
-  color: white;
-}
-
-.login-tab p {
-  font-size: 110%;
   font-weight: bold;
 
+  width: 100%;
+  height: 100%;
+}
+.login-tab div {
   margin: auto auto;
 }
 
 .active-tab {
   font-size: 125%;
   color: white;
+}
+.active-tab:hover {
+  cursor: default;
+}
+
+.inactive-tab div {
+  font-size: 110%;
+}
+.inactive-tab:hover {
+  color: white;
+  font-size: 125%;
+  cursor: pointer;
+
+  transition: font-size 0.5s;
 }

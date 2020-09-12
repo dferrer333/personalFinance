@@ -14,7 +14,9 @@ export default class LoginTabs extends React.Component<LoginTabsProps, {}> {
 
     if (this.props.activeTab === 'login') {
       loginTabClassName += ' active-tab';
+      registerTabClassName += ' inactive-tab';
     } else {
+      loginTabClassName += ' inactive-tab';
       registerTabClassName += ' active-tab';
     }
 
@@ -25,14 +27,14 @@ export default class LoginTabs extends React.Component<LoginTabsProps, {}> {
             onClick={(event: any) => this.props.onTabChange(event)}
             onTouchEnd={(event: any) => this.props.onTabChange(event)}
         >
-          <p>Login</p>
+          <div>LOGIN</div>
         </div>
         <div
             className={registerTabClassName}
             onClick={(event: any) => this.props.onTabChange(event)}
             onTouchEnd={(event: any) => this.props.onTabChange(event)}
         >
-          <p>Register</p>
+          <div>REGISTER</div>
         </div>
       </div>
     );
