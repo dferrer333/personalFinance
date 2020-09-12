@@ -1,0 +1,8 @@
+/* Add Media Queries Eventually! */
+
+#App {
+  background: linear-gradient(#bbe1fa, #3282b8);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}

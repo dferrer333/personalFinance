@@ -1,10 +1,8 @@
-import ActionPanel from './components/ActionPanel';
-import Box from '@material-ui/core/Box';
-import LoginModal from './components/Login/LoginModal';
+import LoginPage from './components/Login/LoginPage';
 import React from 'react';
 import TransactionsRequester from './api/TransactionsRequester';
-import ViewPanel from './components/ViewPanel';
 
+import './App.css';
 
 interface AppProps {
   serverHostUrl: string,
@@ -21,14 +19,14 @@ class App extends React.Component<AppProps, {}> {
 
   render() {
     return (
-      <Box width={'100vw'} height={'100vh'}
-           display={'flex'} flexDirection={'row'} padding={0} margin={0}
-           id={'App'}>
-        <LoginModal isOpen={true} />
-        <ActionPanel />
-        <ViewPanel />
-      </Box>
+      <div id='App'>
+        {this.renderLoginPage()}
+      </div>
     );
+  }
+
+  renderLoginPage() {
+    return <LoginPage />;
   }
 }
 
