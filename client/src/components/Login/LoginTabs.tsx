@@ -1,64 +1,39 @@
-import React from 'react';
+import React, { MouseEventHandler, TouchEventHandler } from 'react';
 
 import './LoginTabs.css';
 
-interface LoginTabContentProps {
+interface LoginTabsProps {
   activeTab: 'login' | 'register',
+  onTabChange: MouseEventHandler | TouchEventHandler,
 }
 
-export class LoginTabContent
-    extends React.Component<LoginTabContentProps, {}> {
-  constructor(props: LoginTabContentProps) {
-    super(props);
-  }
-
+export default class LoginTabs extends React.Component<LoginTabsProps, {}> {
   render() {
+    let loginTabClassName = 'login-tab';
+    let registerTabClassName = 'login-tab';
+
     if (this.props.activeTab === 'login') {
-      return this.renderLoginContent();
+      loginTabClassName += ' active-tab';
     } else {
-      return this.renderRegisterContent();
+      registerTabClassName += ' active-tab';
     }
-  }
 
-  renderLoginContent(): JSX.Element {
     return (
-      <div id='loginTabContent'>
-        <form>
-          <label htmlFor='loginUsername'>Username:</label>
-          <input id='loginUsername' ></input>
-
-          <label htmlFor='loginPassword'>Password:</label>
-          <input id='loginPassword' type='password'></input>
-
-          <button type='submit'>Login</button>
-        </form>
-      </div>
-    );
-  }
-
-  renderRegisterContent(): JSX.Element {
-    return (
-      <div id='loginTabContent'>
-        <label>Enter your Email</label>
-        <input></input>
-
-        <label>Confirm your Email</label>
-        <input></input>
-
-        <label>Enter your First Name</label>
-        <input></input>
-
-        <label>Enter your Last Name</label>
-        <input></input>
-
-        <label>Enter a Password</label>
-        <input type='password'></input>
-
-        <label>Confirm your Password</label>
-        <input type='password'></input>
-
-        <label>Choose Your Favorite Animal</label>
-        <input type='select'></input>
+      <div id='loginTabHeader'>
+        <div
+            className={loginTabClassName}
+            onClick={(event: any) => this.props.onTabChange(event)}
+            onTouchEnd={(event: any) => this.props.onTabChange(event)}
+        >
+          <p>Login</p>
+        </div>
+        <div
+            className={registerTabClassName}
+            onClick={(event: any) => this.props.onTabChange(event)}
+            onTouchEnd={(event: any) => this.props.onTabChange(event)}
+        >
+          <p>Register</p>
+        </div>
       </div>
     );
   }

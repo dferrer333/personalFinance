@@ -1,0 +1,45 @@
+#loginTabContent {
+  width: 100%;
+
+  border-bottom: solid;
+  border-right: solid;
+  border-left: solid;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 5%;
+}
+
+#loginTabContent label {
+  display: block;
+  text-align: center;
+  font-size: 120%;
+  font-weight: bold;
+  color: #bbe1fa;
+}
+
+#loginTabContent input {
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+}
+
+#loginTabContent button {
+  display: block;
+  background-color:  #bbe1fa;
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 120%;
+  color: #1b262c;
+  border: none;
+  border-radius: 3px;
+
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  padding: 5px 10px 5px 10px;
+}

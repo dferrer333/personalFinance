@@ -10,12 +10,3 @@
   width: 300px;
   margin: auto;
 }
-
-#loginTabHeader {
-  background-color: #3282b8;
-  border: solid;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  height: 35px;
-  width: 100%;
-}
