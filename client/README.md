@@ -2,9 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Getting Started
 
-### `.env`
+### `.env.local`
 
-In the client root, make sure to configure a .env file.  This file should include the following key=value pairs:
+In the client root, make sure to configure a .env.local file.  This file should include the following key=value pairs:
 
 **None Required Currently**
 
