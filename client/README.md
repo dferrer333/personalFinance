@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Getting Started
+
+### `.env`
+
+In the client root, make sure to configure a .env file.  This file should include the following key=value pairs:
+
+**None Required Currently**
+
 ## Available Scripts
 
 In the project directory, you can run:
